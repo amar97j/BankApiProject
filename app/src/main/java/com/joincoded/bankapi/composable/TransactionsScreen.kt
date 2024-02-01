@@ -66,6 +66,15 @@ fun TransactionsScreen(viewModel: BankViewModel) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
+            Image(
+                painter = painterResource(id = R.drawable.kfh2),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(90.dp)
+                    .clip(shape = MaterialTheme.shapes.small)
+
+            )
+
 
             OutlinedTextField(
                 value = amount,

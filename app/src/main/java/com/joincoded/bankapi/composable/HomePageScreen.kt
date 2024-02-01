@@ -63,6 +63,7 @@ fun HomePageScreen(
             )
         }) {
 
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -71,7 +72,22 @@ fun HomePageScreen(
             verticalArrangement = Arrangement.Center
         )
 
+
         {
+
+
+            Image(
+                painter = painterResource(id = R.drawable.kfhhh),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(400.dp)
+                    .clip(shape = MaterialTheme.shapes.small)
+
+            )
+
+            Spacer(modifier = Modifier.height(80.dp))
+
+
             Button(
                 onClick = { onSignInClicked() },
                 modifier = Modifier
@@ -81,7 +97,7 @@ fun HomePageScreen(
                 Text("Sign In")
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(6.dp))
 
             Button(
                 onClick = { onSignUpClicked() },
