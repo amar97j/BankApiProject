@@ -1,11 +1,13 @@
 package com.joincoded.bankapi.network
 
 import com.joincoded.bankapi.data.AmountChange
+import com.joincoded.bankapi.data.ProfileInfo
 import com.joincoded.bankapi.data.User
 import com.joincoded.bankapi.data.response.TokenResponse
 import com.joincoded.bankapi.utils.Constants
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
@@ -18,13 +20,8 @@ interface BankApiService {
     @POST(Constants.signinEndpoint)
     suspend fun signin(@Body user: User): Response<TokenResponse>
 
-    @POST(Constants.transfer)
-    suspend fun transfer(
-        @Body usera: String,
-        password: String,
-        token: String?,
-        amountChange: AmountChange
-    ): Response<TokenResponse>
+    @GET("account")
+    suspend fun getProfileInfo():List<ProfileInfo>
 
 
     @PUT(Constants.depositEndpoint)
@@ -36,7 +33,7 @@ interface BankApiService {
     @PUT(Constants.withdrawEndpoint)
     suspend fun withdraw(
         @Header(Constants.authorization) token: String?,
-        @Body amountChange: AmountChange
+        @Body request: AmountChange
     ): Response<Unit>
 
 
